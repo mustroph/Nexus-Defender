@@ -12,7 +12,8 @@ Nexus defender- in this game your mission is defend the castle.
 ##Programming languages
 1. HTML 5.
 2. Css 3.
-3. JQuery. + (firebase).
+3. JQuery.
+4. Firebase as database.
 
 ##Author
 * **Michał Kowalczyk**
