@@ -36,6 +36,12 @@ body {
     background-repeat: no-repeat;
     z-index: 1;
 }
+.minion {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
 
 .bomb {
     width: 20px;

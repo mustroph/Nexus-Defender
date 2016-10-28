@@ -39,11 +39,18 @@ $(function() {
                     clearInterval(start);
                     makeInt();
                 }
-
-                var myDiv = $('<div class="new-object">'); //nowy przeciwnik
-                myDiv.css('width', '40px');
-                myDiv.css('height', '40px');
-                myDiv.css('background-image', 'url("images/' + Math.ceil(Math.random() * 13) + '.png")');
+                var x = Math.floor(Math.random() * 100) % 4;
+                if (x != 0) {
+                    var myDiv = $('<div class="new-object">'); //nowy przeciwnik
+                    myDiv.css('width', '40px');
+                    myDiv.css('height', '40px');
+                    myDiv.css('background-image', 'url("images/' + Math.ceil(Math.random() * 13) + '.png")');
+                } else {
+                    var minion = $('<div class="minion">');
+                    minion.css('width', '40px');
+                    minion.css('height', '40px');
+                    minion.css('background-image', 'url("images/minion' + Math.ceil(Math.random() * 3) + '.png")');
+                }
                 var positionTop;
                 var positionLeft;
                 positionTop = Math.floor(Math.random() * 570);
@@ -52,37 +59,73 @@ $(function() {
                 //---------------------------Losowa pozycja przeciwnikow----------------
                 if (Math.floor(Math.random() * 100) % 2 == 0) {
                     if (positionTop < 285) {
-                        myDiv.css('left', positionLeft);
-                        myDiv.css('top', '0px');
-                        $('.container').append(myDiv);
+                        if (x != 0) {
+                            myDiv.css('left', positionLeft);
+                            myDiv.css('top', '0px');
+                            $('.container').append(myDiv);
+                        } else {
+                            minion.css('left', positionLeft);
+                            minion.css('top', '0px');
+                            $('.container').append(minion);
+                        }
                     } else {
-                        myDiv.css('left', positionLeft);
-                        myDiv.css('top', '580px');
-                        $('.container').append(myDiv);
+                        if (x != 0) {
+                            myDiv.css('left', positionLeft);
+                            myDiv.css('top', '580px');
+                            $('.container').append(myDiv);
+                        } else {
+                            minion.css('left', positionLeft);
+                            minion.css('top', '580px');
+                            $('.container').append(minion);
+                        }
                     }
                 } else {
 
                     if (positionLeft < 380) {
-                        myDiv.css('left', '0px');
-                        myDiv.css('top', positionTop);
-                        $('.container').append(myDiv);
+                        if (x != 0) {
+                            myDiv.css('left', '0px');
+                            myDiv.css('top', positionTop);
+                            $('.container').append(myDiv);
+                        } else {
+                            minion.css('left', '0px');
+                            minion.css('top', positionTop);
+                            $('.container').append(minion);
+                        }
                     } else {
-                        myDiv.css('left', '770px');
-                        myDiv.css('top', positionTop);
-                        $('.container').append(myDiv);
+                        if (x != 0) {
+                            myDiv.css('left', '770px');
+                            myDiv.css('top', positionTop);
+                            $('.container').append(myDiv);
+                        } else {
+                            minion.css('left', '770px');
+                            minion.css('top', positionTop);
+                            $('.container').append(minion);
+                        }
                     }
                 }
                 //----------------------animacja dobiegania do wieży-------------------
-                myDiv.animate({
-                    left: "400px",
-                    top: '290px'
+                if (x != 0) {
+                    myDiv.animate({
+                        left: "400px",
+                        top: '290px'
 
-                }, count, "linear", function() {
-                    if (count > 1000) {
-                        count -= 50;
-                    }
-                });
+                    }, count, "linear", function() {
+                        if (count > 1000) {
+                            count -= 50;
+                        }
+                    });
+                } else {
+                    minion.animate({
+                        left: "400px",
+                        top: '290px'
 
+                    }, count, "linear", function() {
+                        if (count > 1000) {
+                            count -= 50;
+                            minion.remove();
+                        }
+                    });
+                }
             }, count2);
             //--------------------Sprawdzam czy przeciwnik wszedł do zamku--------------
 
@@ -127,6 +170,27 @@ $(function() {
             }, 100, function() {
                 comeBack();
                 thisDiv.remove();
+                var death = $('<div class="death">');
+                death.css('left', bombLeft);
+                death.css('top', bombTop);
+                container.append(death);
+                setTimeout(function() {
+                    death.remove()
+                }, 2000);
+            });
+        });
+        container.on('click', '.minion', function(event) {
+            var thisMinion = $(this);
+            var bombTop = thisMinion.position().top;
+            var bombLeft = thisMinion.position().left;
+            scoreCount--;
+            score.html('Twój wynik to:' + ' ' + scoreCount);
+            bomb.animate({
+                top: bombTop,
+                left: bombLeft
+            }, 100, function() {
+                comeBack();
+                thisMinion.remove();
                 var death = $('<div class="death">');
                 death.css('left', bombLeft);
                 death.css('top', bombTop);

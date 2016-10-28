@@ -6,7 +6,8 @@ Nexus defender- in this game your mission is defend the castle.
 1. Enter your Nick name.
 2. Click start.
 3. Kill opponents.
-4. Become the best Defender.
+4. Don't kill your minions (minions have green border).
+5. Become the best Defender.
 
 
 ##Programming languages
