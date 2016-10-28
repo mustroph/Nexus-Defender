@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Finally Project</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <!--         Ekran startowy    -->
+    <div class="startGame">
+        <h1>Nexus Defender</h1>
+        <form>
+            <label>Nick:
+              <input type="text" class="nick" placeholder="Podaj swój Nick"><br><br>
+            </label>
+            <input type="submit" class="start" value="Start">
+        </form>
+        <h3></h3>
+    </div>
+
+    <!--             Gra          -->
+    <div class="yourScore">
+        <span class="name">Twój Nick</span><br>
+        <hr>
+        <span class="score">Twój wynik to: 0</span>
+    </div>
+    <div class="container">
+        <div class="castle">
+        </div>
+        <div class="bomb">
+        </div>
+    </div>
+    <!--         Ekran końcowy -->
+    <div class="gameOver">
+        <table class="table">
+            <tr>
+                <td>
+                    Lp.
+                </td>
+                <td>
+                    Nick:
+                </td>
+                <td>
+                    Best Score:
+                </td>
+            </tr>
+
+        </table>
+        <div class="title">
+            <h2>GAME OVER</h2>
+            <h4></h4>
+            <input type="submit" class="playAgain" value="Zagraj ponownie">
+        </div>
+
+    </div>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAddylOlotUg4TwwdWy6lhyX5VcN5SmwpI",
+            authDomain: "nexus-defender-9e287.firebaseapp.com",
+            databaseURL: "https://nexus-defender-9e287.firebaseio.com",
+            storageBucket: "nexus-defender-9e287.appspot.com",
+            messagingSenderId: "681565668186"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+</body>
+
+</html>
