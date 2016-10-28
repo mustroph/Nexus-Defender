@@ -1,16 +1,21 @@
 # Nexus-Defender
 
-Nexus defender to gra polegająca na obronie zamku przed najeźdźcami.
+Nexus defender- in this game your mission is defend the castle.
 
-##Instrukcja:
-1. Wpisz swój Nick na ekranie startowym.
-2. Kliknij start.
-3. Likwiduj przeciwników poprzez wystrzeleniew nich kulą.
-4. Zdobywaj jak najwięcej pkt za każdego powstrzymanego przeciwnika.
-5. Zdobądź jak najwięcej punktów, aby dostać się na sam szczyt tabelki Obrońców Nexusa.
+##Game instruction
+1. Enter your Nick name.
+2. Click start.
+3. Kill opponents.
+4. Become the best Defender.
 
 
-##Wykorzystane języki programowania:
-1. HTML.
-2. Css.
+##Programming languages
+1. HTML 5.
+2. Css 3.
 3. JQuery. + (firebase).
+
+##Author
+* **Michał Kowalczyk**
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
