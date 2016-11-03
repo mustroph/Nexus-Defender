@@ -11,25 +11,76 @@ $(function() {
     var playAgain = $('.playAgain');
     var h4 = $('h4');
     var array = [];
+    var autor = $('.authorDiv');
+    var instruction = $('.instructionDiv');
+    var startGame = $('.startGame');
+
+    //----------------------audio----------------------------------
+    var startAudio = $('#startAudio');
+    var gameAudio = $('#gameAudio');
+    var shot = $('#shot');
+    var game_over = $('#game_over');
+
+    function play(audio) {
+        audio[0].play();
+    }
+
+    function pause(audio) {
+        audio[0].pause();
+    }
+
+    //---------------------muzyka na start---------------------------------
+    var sound1 = setInterval(function() {
+        play(startAudio);
+
+    });
     //--------------------przejscie z ekranu startowego do gry-------------
     $('.start').on('click', function(event) {
         event.preventDefault();
-        $('body').css('background', 'lightblue');
         var nick = $('.nick').val(); // nick gracza
         name.html("Twój nick to:" + ' ' + nick);
         if (nick.length > 2) {
+            $('body').css('background', 'lightblue');
             h3.html('');
             $('.startGame').slideUp();
             game();
+            clearInterval(sound1);
+            pause(startAudio);
         } else {
             h3.html('Zły nick!!!!');
         }
 
     });
+    //-----------------------autor---------------------------------------
+    $('.author').on('click', function(event) {
+        event.preventDefault();
+        if (autor.css('display') == 'block') {
+            autor.slideUp('fast');
+            instruction.slideUp('fast');
+        } else {
+            instruction.slideUp('fast', function() {
+                autor.slideDown('fast');
+            });
+        }
+    });
+    $('.instruction').on('click', function(event) {
+        event.preventDefault();
+        if (instruction.css('display') == 'block') {
+            autor.slideUp('fast');
+            instruction.slideUp('fast');
+        } else {
+            autor.slideUp('fast', function() {
+                instruction.slideDown('fast');
+            });
+        }
+    });
     //-----------------------------Gra------------------------------------
     function game() {
         container.slideDown();
         tableScore.slideDown();
+        var sound2 = setInterval(function() {
+            play(gameAudio);
+        });
         //-------------------------Pojawianie się przeciwnikow-------------
         function makeInt() {
             var start = setInterval(function() {
@@ -135,6 +186,9 @@ $(function() {
                     if (enemy.position().left == 400 && enemy.position().top == 290) {
                         count = 999999999999988;
                         count2 = 99999999999988;
+                        clearInterval(sound2);
+                        pause(gameAudio);
+                        play(game_over);
                         gameOver.css('display', 'block');
                         container.css('display', 'none');
                         tableScore.css('display', 'none');
@@ -163,6 +217,7 @@ $(function() {
             var bombTop = thisDiv.position().top;
             var bombLeft = thisDiv.position().left;
             scoreCount++;
+            play(shot);
             score.html('Twój wynik to:' + ' ' + scoreCount);
             bomb.animate({
                 top: bombTop,
@@ -184,6 +239,7 @@ $(function() {
             var bombTop = thisMinion.position().top;
             var bombLeft = thisMinion.position().left;
             scoreCount--;
+            play(shot);
             score.html('Twój wynik to:' + ' ' + scoreCount);
             bomb.animate({
                 top: bombTop,
@@ -254,8 +310,6 @@ $(function() {
 
 
     }
-
-
 
 
 });
