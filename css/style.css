@@ -1,0 +1,189 @@
+body {
+    background: #242b31;
+}
+
+.container {
+    width: 800px;
+    height: 610px;
+    background-image: url('../images/mapa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    position: relative;
+    display: none;
+    cursor: crosshair;
+}
+
+.castle {
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    background-image: url('../images/nexus.png');
+    z-index: 2;
+    background-size: contain;
+    position: absolute;
+    top: 280px;
+    left: 390px;
+}
+
+.myDiv {
+    position: absolute;
+}
+
+.new-object {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.minion {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.bomb {
+    width: 20px;
+    height: 20px;
+    background-image: url('../images/bomba.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 405px;
+    top: 295px;
+    border-radius: 50%;
+}
+
+.yourScore {
+    font-family: 'Luckiest Guy', cursive;
+    float: left;
+    width: 260px;
+    border: 3px solid black;
+    background: lightgrey;
+    font-size: 18px;
+    margin-top: 200px;
+    display: none;
+}
+
+.startGame {
+    width: 100%;
+    height: 610px;
+    background-image: url('../images/start.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    color: #08091d;
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 5em;
+}
+
+form {
+    padding-top: 230px;
+}
+
+form label {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h3 {
+    color: white;
+    font-weight: bold;
+    font-family: 'Shrikhand', cursive;
+}
+
+.gameOver {
+    width: 100%;
+    height: 610px;
+    font-family: 'Luckiest Guy', cursive;
+    text-align: center;
+    background-image: url('../images/finish.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: none;
+}
+
+.gameOver table {
+    margin-left: 30px;
+    background-color: lightgrey;
+    border: 2px solid darkblue;
+    float: left;
+    margin: 20px;
+}
+
+.gameOver table td {
+    border: 1px solid darkblue;
+}
+
+.gameOver h2 {
+    color: red;
+    font-size: 4em;
+}
+
+.gameOver .title {
+    float: left;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+
+h4 {
+    color: white;
+    font-size: 1.5em;
+}
+
+.death {
+    width: 40px;
+    height: 40px;
+    background-image: url('../images/death.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+.start, .instruction, .author {
+    width: 90px;
+    height: 30px;
+    border-radius: 40%;
+    background: #82b9e4;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.authorDiv {
+    display: none;
+    position: absolute;
+    color: #08091d;
+    background-color: lightgrey;
+    top: 160px;
+    left: 350px;
+}
+
+.authorDiv h1 {
+    margin: 0px;
+    border: 7px solid red;
+    font-family: 'Shrikhand', cursive;
+}
+
+.instructionDiv {
+    display: none;
+    position: absolute;
+    color: #08091d;
+    background-color: lightgrey;
+    top: 110px;
+    left: 350px;
+    border: 7px solid red;
+    font-family: 'Shrikhand', cursive;
+}
+
+.instructionDiv h1 {
+    margin: 0px;
+}
