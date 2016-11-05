@@ -74,23 +74,25 @@ $(function() {
     $('.author').on('click', function(event) {
         event.preventDefault();
         if (autor.css('display') == 'block') {
-            autor.slideUp('fast');
-            instruction.slideUp('fast');
+            autor.css('display', 'none');
+            instruction.css('display', 'none');
+            $('form').css('padding-top', '252px');
         } else {
-            instruction.slideUp('fast', function() {
-                autor.slideDown('fast');
-            });
+            instruction.css('display', 'none');
+            autor.css('display', 'block');
+            $('form').css('padding-top', '10px');
         }
     });
     $('.instruction').on('click', function(event) {
         event.preventDefault();
         if (instruction.css('display') == 'block') {
-            autor.slideUp('fast');
-            instruction.slideUp('fast');
+            autor.css('display', 'none');
+            instruction.css('display', 'none');
+            $('form').css('padding-top', '252px');
         } else {
-            autor.slideUp('fast', function() {
-                instruction.slideDown('fast');
-            });
+            instruction.css('display', 'block');
+            autor.css('display', 'none');
+            $('form').css('padding-top', '10px');
         }
     });
     //-----------------------------Gra------------------------------------

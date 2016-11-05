@@ -1,5 +1,8 @@
 body {
     background: #242b31;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
@@ -69,7 +72,6 @@ body {
 
 .startGame {
     width: 100%;
-    height: 610px;
     background-image: url('../images/start.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -78,6 +80,8 @@ body {
     color: #08091d;
     text-align: center;
     font-family: 'Luckiest Guy', cursive;
+    position: relative;
+    padding-bottom: 50px;
 }
 
 h1 {
@@ -86,7 +90,7 @@ h1 {
 }
 
 form {
-    padding-top: 230px;
+    padding-top: 250px;
 }
 
 form label {
@@ -178,15 +182,14 @@ h4 {
 }
 
 .authorDiv {
+    width: 40%;
+    margin: auto;
     display: none;
-    position: absolute;
     box-shadow: 2px 2px 3px grey;
     border: 4px solid #0099cc;
     border-radius: 35px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.50) 100%);
     color: white;
-    top: 140px;
-    left: 450px;
 }
 
 .authorDiv h1 {
@@ -195,14 +198,13 @@ h4 {
 }
 
 .instructionDiv {
+    width: 65%;
+    margin: auto;
     display: none;
-    position: absolute;
     border: 4px solid #0099cc;
     border-radius: 35px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.90) 0%, rgba(0, 0, 0, 0.70) 100%);
     color: white;
-    top: 100px;
-    left: 320px;
     font-family: 'Itim', cursive;
     font-size: 20px;
 }
@@ -212,15 +214,14 @@ h4 {
 }
 
 .saundValue {
-  position: absolute;
-  left: 1090px;
-  top: 540px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
     margin-right: 100px;
     font-size: 30px;
     color: white;
     font-family: 'Shrikhand', cursive;
 }
-
 
 .nick {
     border-radius: 7px;
