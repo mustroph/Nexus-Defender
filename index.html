@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <title>Finally Project</title>
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Coiny|Itim" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/app.js"></script>
     <audio id="startAudio" src="sounds/start.mp3"></audio>
@@ -20,7 +22,7 @@
     <div class="startGame">
         <h1>Nexus Defender</h1>
         <form>
-            <label>Nick:
+            <label class="nickLabel">Nick:
               <input type="text" class="nick" placeholder="Podaj swój Nick"><br>
             </label>
             <h3></h3>
@@ -28,8 +30,13 @@
             <input type="submit" class="author" value="Author"><br>
             <input type="submit" class="instruction" value="Instructions">
         </form>
+        <div class="saundValue">
+          <span>Music:</span>
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <i class="fa fa-volume-off" aria-hidden="true"></i>
+        </div>
         <div class="authorDiv">
-            <h1>Michał Kowalczyk</h1>
+            <h1>Michał <br>Kowalczyk</h1>
         </div>
         <div class="instructionDiv">
             <h1>Game instruction</h1>

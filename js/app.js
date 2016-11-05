@@ -15,11 +15,15 @@ $(function() {
     var instruction = $('.instructionDiv');
     var startGame = $('.startGame');
 
+
     //----------------------audio----------------------------------
     var startAudio = $('#startAudio');
     var gameAudio = $('#gameAudio');
     var shot = $('#shot');
     var game_over = $('#game_over');
+    var soundOn = $('.fa-volume-up');
+    var soundOff = $('.fa-volume-off');
+
 
     function play(audio) {
         audio[0].play();
@@ -28,11 +32,26 @@ $(function() {
     function pause(audio) {
         audio[0].pause();
     }
-
+    soundOff.css('display', 'none');
+    soundOn.on('click', function(event) {
+        event.preventDefault();
+        $(this).css('display', 'none');
+        soundOff.css('display', 'inline-block');
+        clearInterval(sound1);
+        pause(startAudio);
+    });
+    soundOff.on('click', function(event) {
+        event.preventDefault();
+        $(this).css('display', 'none');
+        soundOn.css('display', 'inline-block');
+        play(startAudio);
+        sound1 = setInterval(function() {
+            play(startAudio);
+        });
+    });
     //---------------------muzyka na start---------------------------------
     var sound1 = setInterval(function() {
         play(startAudio);
-
     });
     //--------------------przejscie z ekranu startowego do gry-------------
     $('.start').on('click', function(event) {
