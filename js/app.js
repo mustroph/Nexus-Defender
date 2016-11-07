@@ -14,6 +14,9 @@ $(function() {
     var autor = $('.authorDiv');
     var instruction = $('.instructionDiv');
     var startGame = $('.startGame');
+    var windowHei = $(document).innerHeight();
+    startGame.css('height', windowHei - 66 + 'px');
+    gameOver.css('height', windowHei - 17 + 'px');
 
 
     //----------------------audio----------------------------------
@@ -288,8 +291,6 @@ $(function() {
 
 
     //------------------baza danych------------------------
-
-
     function add() {
         firebase
             .database()
@@ -323,7 +324,6 @@ $(function() {
                     .database()
                     .ref('array')
                     .set(array);
-
             });
 
         //This will sort your array
