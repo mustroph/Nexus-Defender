@@ -139,6 +139,7 @@ h3 {
 }
 
 .gameOver table {
+    font-family: 'Shrikhand', cursive;
     margin-left: 30px;
     background-color: lightgrey;
     border: 2px solid darkblue;
