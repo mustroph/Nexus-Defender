@@ -25,5 +25,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ##Demo
 
 * [Nexus Defender](https://mustroph.github.io/Nexus-Defender/)
-
-
