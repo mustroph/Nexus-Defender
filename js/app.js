@@ -328,6 +328,16 @@ $(function() {
 
 
     //------------------baza danych------------------------
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCHP6WAcJ6mgjBS9QAsgJ_kSDYMTBDN9y8",
+        authDomain: "nexusdefender-cd8f2.firebaseapp.com",
+        databaseURL: "https://nexusdefender-cd8f2.firebaseio.com",
+        storageBucket: "nexusdefender-cd8f2.appspot.com",
+        messagingSenderId: "435267209363"
+    };
+    firebase.initializeApp(config);
+
     function add() {
         firebase
             .database()
