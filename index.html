@@ -45,21 +45,32 @@
         </form>
         <div class="saundValue">
             <span>Music:</span>
-            <i class="fa fa-volume-up" aria-hidden="true"></i>
-            <i class="fa fa-volume-off" aria-hidden="true"></i>
+            <i class="fa fa-volume-up startOn" aria-hidden="true"></i>
+            <i class="fa fa-volume-off startOff" aria-hidden="true"></i>
         </div>
     </div>
 
     <!--             Gra          -->
-    <div class="yourScore">
-        <span class="name">Twój Nick</span><br>
-        <hr>
-        <span class="score">Twój wynik to: 0</span>
-    </div>
-    <div class="container">
-        <div class="castle">
+    <div class="game">
+        <div class="margin1">
+            <div class="yourScore">
+                <span>Twój Nick:<br> <span  class="name"></span></span><br>
+                <hr>
+                <span>Twój wynik:<br><span class="score"> 0</span></span>
+            </div>
+            <div class="mute">
+                <span>Music:</span>
+                <i class="fa fa-volume-up gameMusicOn" aria-hidden="true"></i>
+                <i class="fa fa-volume-off gameMusicOff" aria-hidden="true"></i>
+            </div>
         </div>
-        <div class="bomb">
+        <div class="container">
+            <div class="castle">
+            </div>
+            <div class="bomb">
+            </div>
+        </div>
+        <div class="margin2">
         </div>
     </div>
     <!--         Ekran końcowy -->
@@ -90,15 +101,15 @@
 
     <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCHP6WAcJ6mgjBS9QAsgJ_kSDYMTBDN9y8",
-        authDomain: "nexusdefender-cd8f2.firebaseapp.com",
-        databaseURL: "https://nexusdefender-cd8f2.firebaseio.com",
-        storageBucket: "nexusdefender-cd8f2.appspot.com",
-        messagingSenderId: "435267209363"
-      };
-      firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCHP6WAcJ6mgjBS9QAsgJ_kSDYMTBDN9y8",
+            authDomain: "nexusdefender-cd8f2.firebaseapp.com",
+            databaseURL: "https://nexusdefender-cd8f2.firebaseio.com",
+            storageBucket: "nexusdefender-cd8f2.appspot.com",
+            messagingSenderId: "435267209363"
+        };
+        firebase.initializeApp(config);
     </script>
 
 </body>

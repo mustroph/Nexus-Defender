@@ -14,18 +14,35 @@ $(function() {
     var autor = $('.authorDiv');
     var instruction = $('.instructionDiv');
     var startGame = $('.startGame');
+
+
     var windowHei = $(document).innerHeight();
+    var contHei = container.height();
+    var scoreHei = tableScore.height();
     startGame.css('height', windowHei - 66 + 'px');
     gameOver.css('height', windowHei - 17 + 'px');
+    var marginCont = ((windowHei - contHei) / 2) - 12 + 'px';
+    container.css('margin-top', marginCont);
+    var marginScore = ((windowHei - scoreHei) / 2) - 120 + 'px';
+    tableScore.css('margin-top', marginScore);
 
+    var margin1 = $('.margin1');
+    var margin2 = $('.margin2');
+    var contWid = container.innerWidth();
+    var windowWid = $(document).innerWidth();
+    var marginWid = ((windowWid - contWid) / 2) - 22.5 + 'px';
+    margin1.css('width', marginWid);
+    margin2.css('width', marginWid);
 
     //----------------------audio----------------------------------
     var startAudio = $('#startAudio');
     var gameAudio = $('#gameAudio');
     var shot = $('#shot');
     var game_over = $('#game_over');
-    var soundOn = $('.fa-volume-up');
-    var soundOff = $('.fa-volume-off');
+    var startOn = $('.startOn');
+    var startOff = $('.startOff');
+    var gameMusicOn = $('.gameMusicOn');
+    var gameMusicOff = $('.gameMusicOff');
 
 
     function play(audio) {
@@ -35,18 +52,18 @@ $(function() {
     function pause(audio) {
         audio[0].pause();
     }
-    soundOff.css('display', 'none');
-    soundOn.on('click', function(event) {
+    startOff.css('display', 'none');
+    startOn.on('click', function(event) {
         event.preventDefault();
         $(this).css('display', 'none');
-        soundOff.css('display', 'inline-block');
+        startOff.css('display', 'inline-block');
         clearInterval(sound1);
         pause(startAudio);
     });
-    soundOff.on('click', function(event) {
+    startOff.on('click', function(event) {
         event.preventDefault();
         $(this).css('display', 'none');
-        soundOn.css('display', 'inline-block');
+        startOn.css('display', 'inline-block');
         play(startAudio);
         sound1 = setInterval(function() {
             play(startAudio);
@@ -60,11 +77,11 @@ $(function() {
     $('.start').on('click', function(event) {
         event.preventDefault();
         var nick = $('.nick').val(); // nick gracza
-        name.html("Twój nick to:" + ' ' + nick);
+        name.html(nick);
         if (nick.length > 2) {
             $('body').css('background', 'lightblue');
             h3.html('');
-            $('.startGame').slideUp();
+            $('.startGame').css('display', 'none');
             game();
             clearInterval(sound1);
             pause(startAudio);
@@ -76,6 +93,7 @@ $(function() {
     //-----------------------autor---------------------------------------
     $('.author').on('click', function(event) {
         event.preventDefault();
+        h3.html('');
         if (autor.css('display') == 'block') {
             autor.css('display', 'none');
             instruction.css('display', 'none');
@@ -88,6 +106,7 @@ $(function() {
     });
     $('.instruction').on('click', function(event) {
         event.preventDefault();
+        h3.html('');
         if (instruction.css('display') == 'block') {
             autor.css('display', 'none');
             instruction.css('display', 'none');
@@ -100,10 +119,25 @@ $(function() {
     });
     //-----------------------------Gra------------------------------------
     function game() {
-        container.slideDown();
-        tableScore.slideDown();
+        $('.game').css('display', 'block');
         var sound2 = setInterval(function() {
             play(gameAudio);
+        });
+        gameMusicOff.css('display', 'none');
+        gameMusicOn.on('click', function(event) {
+            event.preventDefault();
+            $(this).css('display', 'none');
+            gameMusicOff.css('display', 'inline-block');
+            clearInterval(sound2);
+            pause(gameAudio);
+        });
+        gameMusicOff.on('click', function(event) {
+            event.preventDefault();
+            $(this).css('display', 'none');
+            gameMusicOn.css('display', 'inline-block');
+            sound2 = setInterval(function() {
+                play(gameAudio);
+            });
         });
         //-------------------------Pojawianie się przeciwnikow-------------
         function makeInt() {
@@ -214,9 +248,8 @@ $(function() {
                         pause(gameAudio);
                         play(game_over);
                         gameOver.css('display', 'block');
-                        container.css('display', 'none');
-                        tableScore.css('display', 'none');
-                        h4.html(score.text());
+                        $('.game').css('display', 'none');
+                        h4.html('Twój wynik to:' + ' ' + score.text());
                         enemy.remove();
                         $('body').css('background', 'black');
                         add();
@@ -241,8 +274,10 @@ $(function() {
             var bombTop = thisDiv.position().top;
             var bombLeft = thisDiv.position().left;
             scoreCount++;
-            play(shot);
-            score.html('Twój wynik to:' + ' ' + scoreCount);
+            if (gameMusicOff.css('display') == 'none') {
+                play(shot);
+            }
+            score.html(scoreCount);
             bomb.animate({
                 top: bombTop,
                 left: bombLeft
@@ -263,8 +298,10 @@ $(function() {
             var bombTop = thisMinion.position().top;
             var bombLeft = thisMinion.position().left;
             scoreCount--;
-            play(shot);
-            score.html('Twój wynik to:' + ' ' + scoreCount);
+            if (gameMusicOff.css('display') == 'none') {
+                play(shot);
+            }
+            score.html(scoreCount);
             bomb.animate({
                 top: bombTop,
                 left: bombLeft

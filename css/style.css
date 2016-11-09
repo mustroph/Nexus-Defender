@@ -3,16 +3,21 @@ body {
     position: relative;
 }
 
+.game {
+    display: none;
+    width: 100%;
+}
+
 .container {
     width: 800px;
     height: 610px;
     background-image: url('../images/mapa.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    margin: auto;
     position: relative;
-    display: none;
     cursor: crosshair;
+    border: 6px solid black;
+    float: left;
 }
 
 .castle {
@@ -57,15 +62,33 @@ body {
     border-radius: 50%;
 }
 
-.yourScore {
-    font-family: 'Luckiest Guy', cursive;
+.margin1, .margin2 {
     float: left;
-    width: 260px;
+    margin: 0;
+}
+
+.yourScore {
+    font-family: 'Shrikhand', cursive;
     border: 3px solid black;
-    background: lightgrey;
+    background: #0a325e;
+    color: #d3d7d8;
     font-size: 18px;
-    margin-top: 200px;
-    display: none;
+    text-align: center;
+    padding: 7px;
+    margin: auto;
+    width: 60%;
+}
+
+.mute {
+    font-size: 30px;
+    color: #0a325e;
+    font-family: 'Shrikhand', cursive;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.score, .name {
+    color: #19ddff;
 }
 
 .startGame {
@@ -98,7 +121,7 @@ form label {
 }
 
 h3 {
-    color: white;
+    color: #3496ed;
     font-weight: bold;
     font-family: 'Shrikhand', cursive;
 }
@@ -174,7 +197,7 @@ h4 {
     padding: 3px 10px;
 }
 
-.start:hover, .instruction:hover, .author:hover {
+.start:hover, .instruction:hover, .author:hover, .playAgain:hover {
     -moz-box-shadow: 2px 2px 3px blue inset;
     -webkit-box-shadow: 2px 2px 3px blue inset;
     box-shadow: 2px 2px 3px blue inset;
@@ -188,7 +211,7 @@ h4 {
     border: 4px solid #0099cc;
     border-radius: 35px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.50) 100%);
-    color: #9C9C9C;
+    color: #3496ed;
 }
 
 .authorDiv h1 {
@@ -203,7 +226,7 @@ h4 {
     border: 4px solid #0099cc;
     border-radius: 35px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.90) 0%, rgba(0, 0, 0, 0.70) 100%);
-    color: white;
+    color: #3496ed;
     font-family: 'Itim', cursive;
     font-size: 20px;
 }
@@ -218,7 +241,7 @@ h4 {
     bottom: 20px;
     margin-right: 100px;
     font-size: 30px;
-    color: white;
+    color: #3496ed;
     font-family: 'Shrikhand', cursive;
 }
 
@@ -234,4 +257,24 @@ h4 {
 
 .nickLabel {
     font-family: 'Shrikhand', cursive;
+}
+
+.playAgain {
+    cursor: pointer;
+    font-family: Calibri, Verdana, Arial, sans-serif;
+    font-size: 18px;
+    background: #1e5799;
+    background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+    background: -webkit-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+    background: linear-gradient(to bottom, #08091d 0%, #2989d8 50%, #08091d 51%, #0099cc 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=0);
+    border: 1px solid #bbbbbb;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    -moz-box-shadow: 2px 2px 3px blue;
+    -webkit-box-shadow: 2px 2px 3px blue;
+    box-shadow: 2px 2px 3px blue;
+    text-decoration: none;
+    color: #fff;
 }
