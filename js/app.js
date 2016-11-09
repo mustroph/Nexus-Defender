@@ -241,24 +241,21 @@ $(function() {
             setInterval(function() {
                 var enemy = $('.new-object');
                 enemy.each(function() {
-                        if ($(this).position().left == 400 && $(this).position().top == 290) {
-                            gameOver.css('display', 'block');
-                            $('.game').css('display', 'none');
-                            count = 999999999999988;
-                            count2 = 99999999999988;
-                            clearInterval(sound2);
-                            pause(gameAudio);
-                            play(game_over);
-                            h4.html('Twój wynik to:' + ' ' + score.text());
-                            $('body').css('background', 'black');
-                            add();
-                        }
-                    },
-                    600,
-                    function() {
+                    if ($(this).position().left == 400 && $(this).position().top == 290) {
+                        gameOver.css('display', 'block');
+                        $('.game').css('display', 'none');
+                        count = 999999999999988;
+                        count2 = 99999999999988;
+                        clearInterval(sound2);
+                        pause(gameAudio);
+                        play(game_over);
+                        h4.html('Twój wynik to:' + ' ' + score.text());
+                        $('body').css('background', 'black');
+                        add();
                         enemy.remove();
-                    });
-            });
+                    }
+                });
+            },1);
         }
 
         makeInt();
