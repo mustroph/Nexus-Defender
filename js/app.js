@@ -250,11 +250,12 @@ $(function() {
                         gameOver.css('display', 'block');
                         $('.game').css('display', 'none');
                         h4.html('Twój wynik to:' + ' ' + score.text());
-                        enemy.remove();
                         $('body').css('background', 'black');
                         add();
                     }
-                }, 1);
+                }, function() {
+                    enemy.remove();
+                });
             });
         }
 
